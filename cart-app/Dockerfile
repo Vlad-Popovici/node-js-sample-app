@@ -1,9 +1,11 @@
-FROM Node:15.13.0-alpine3.10 as builder
-
-COPY . /cart-app
+FROM node:15.13.0-alpine3.10
 
 WORKDIR /cart-app
 
-RUN node cart-app.js
+RUN npm install
 
-EXPOSE 80
+COPY . /cart-app
+
+EXPOSE 8000
+
+CMD ["node", "cart.js"]
